@@ -20,7 +20,6 @@ src/
   shergen/               Core engine: renderer, UI system, Lua bindings
   Shergen.Json/           JSON Lua module
   Shergen.XLSX/           XLSX Lua module
-  Shergen.RendererTK/     Legacy OpenTK-based renderer (superseded by the Silk.NET renderer; kept for reference)
 
 Data/
   ShergenData/            Shared engine assets (fonts, shaders, ...)
