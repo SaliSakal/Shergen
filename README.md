@@ -10,7 +10,7 @@ Shergen is not (yet) a full game engine — right now it covers rendering, a UI 
 - **Rich text** — inline formatting tags (`<b>`, `<i>`, `<u>`, `<st>`, `<c=RRGGBB>`, `<s=scale>`) and inline icons (`<icon=name>`) registered from Lua, with word wrap and per-character layout.
 - **Lua scripting** — a native C API binding exposes engine functionality to Lua as global tables (`GUI`, `JSON`, ...); game/UI logic is written entirely in Lua.
 - **JSON persistence** — a `JSON` Lua module (`Load`, `Save`, `Parse`, `Stringify`, `GetKey`, `SetKey`, `SetArray`, `SetObject`, `RemoveKey`) for reading and mutating JSON files directly from Lua, with 1-based (Lua-style) path indexing.
-- **Cross-platform rendering** — SDF font rendering, batched draw calls, async texture loading, built on Silk.NET/OpenGL so the same renderer runs on Windows, Linux and Android.
+- **Cross-platform rendering** — SDF font rendering, batched draw calls, async texture loading, built on Silk.NET/OpenGL so the same renderer runs on Windows and Linux.
 
 ## Project structure
 
@@ -25,7 +25,7 @@ Data/
   ShergenData/            Shared engine assets (fonts, shaders, ...)
   ShergenDataWin/         Windows-specific data
   ShergenDataLin/         Linux-specific data
-  ShergenDataAndr/        Android-specific native libraries
+  ShergenDataAndr/        Android-specific native libraries (Android build currently not works)
   UIData/                 UI theme assets (panels, buttons, backgrounds)
 ```
 
@@ -37,7 +37,7 @@ Requirements: [.NET SDK](https://dotnet.microsoft.com/) matching the `net10.0` t
 
 1. Open `shergen.slnx` in Visual Studio, or run `dotnet build` from the repository root.
 2. The `program` project is the entry point; the other projects under `src/` are referenced by it.
-3. Build target platforms are `x64` and `ARM64`.
+3. Build target platforms are `x64`.
 
 ## Scripting
 
@@ -51,7 +51,3 @@ local label = GUI.CreateLabel(parent, "Hello, <c=FFD700>world</c>!");
 JSON.SetKey("save.json", "player.name", "Tarek");
 local name = JSON.GetKey("save.json", "player.name");
 ```
-
-## License
-
-*Not yet chosen — add a `LICENSE` file before treating this as open source.*
