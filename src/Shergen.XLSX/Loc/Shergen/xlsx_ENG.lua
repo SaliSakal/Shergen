@@ -1,0 +1,11 @@
+TID_XLSX_ERROR_CELL_ROW = "❌ Row number must be between 1 and 1048576";
+TID_XLSX_ERROR_CELL_COL = "❌ Column number must be between 1 and 1048576";
+TID_XLSX_ERROR_COLOR_FORMAT = "❌ Color format must be #RRGGBB or RGB table";
+TID_XLSX_ERROR_WORKBOOK_CLOSED = "⚠️ This workbook is already closed!";
+TID_XLSX_ERROR_SHEET_DOESNT_EXIST = "⚠️ Sheet {sheet} doesn't exist!";
+TID_XLSX_ERROR_WORKBOOK_DOESNT_EXIST = "⚠️ Workbook {workbook} does not exist!";
+TID_XLSX_ERROR_INVALID_CELL_ADDRESS = "❌ Invalid cell address: {address}";
+TID_XLSX_ERROR_INVALID_RANGE = "❌ Invalid range format";
+TID_XLSX_ERROR_INVALID_RANGE_STRING = "❌ Invalid range string: {range}";
+TID_XLSX_ERROR_INVALID_ERANGE = "❌ Invalid ERange format";
+TID_XLSX_ERROR_INVALID_COLOR = "❌ Invalid color format";

@@ -1,0 +1,19 @@
+#version 330 core
+layout(location = 0) in vec2 aPos;
+layout(location = 1) in vec2 aTexCoord; 
+out vec2 TexCoord; 
+
+uniform vec2 position;
+uniform vec2 size;
+uniform mat4 projection; 
+
+uniform vec2 uvOffset;
+uniform vec2 uvScale;
+
+void main()
+{
+    vec2 worldPos = aPos * size + position;
+    gl_Position = projection * vec4(worldPos, 0.0, 1.0);
+	//TexCoord = aTexCoord;
+    TexCoord = aTexCoord * uvScale + uvOffset;
+}

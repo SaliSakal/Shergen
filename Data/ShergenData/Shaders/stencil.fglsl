@@ -1,0 +1,14 @@
+#version 330 core
+
+in vec2 TexCoord;
+out vec4 FragColor;
+
+uniform sampler2D maskTex;
+uniform float threshold;
+
+void main()
+{
+    float v = texture(maskTex, TexCoord).r;
+    if (v < threshold) discard;
+    FragColor = vec4(1.0);
+}

@@ -1,0 +1,1 @@
+TID_CORE_GLOBALS_HELP = "📜 Seznam všech globálních proměnných v Lua:";

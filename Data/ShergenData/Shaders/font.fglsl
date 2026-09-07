@@ -1,0 +1,40 @@
+#version 450 core
+in vec2 UV;
+in float vLayer;
+
+//uniform sampler2D fontAtlas;
+uniform sampler2DArray fontAtlas;
+uniform vec4 color;
+uniform float rangeMin;
+uniform float rangeMax;
+
+uniform vec4 outlineColor;
+uniform float outlineMin;
+uniform float outlineMax;
+
+uniform int renderMode; // 1 = jen outline, 2 = jen fill
+
+
+
+out vec4 FragColor;
+
+void main()
+{
+    //float dist = texture(fontAtlas, UV).r;
+    float dist = texture(fontAtlas, vec3(UV, vLayer)).r;
+
+    if (renderMode == 1)
+    {
+        // Jen outline ring
+        float outlineAlpha = smoothstep(outlineMin, outlineMax, dist);
+        float textAlpha    = smoothstep(rangeMin, rangeMax, dist);
+        float ring = outlineAlpha * (1.0 - textAlpha);
+        FragColor = vec4(outlineColor.rgb, outlineColor.a * ring);
+    }
+    else
+    {
+        // Jen fill
+        float alpha = smoothstep(rangeMin, rangeMax, dist);
+        FragColor = vec4(color.rgb, color.a * alpha);
+    }
+}

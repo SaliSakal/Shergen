@@ -1,0 +1,23 @@
+<Solution>
+  <Configurations>
+    <Platform Name="ARM64" />
+    <Platform Name="x64" />
+  </Configurations>
+  <Folder Name="/Program/">
+    <Project Path="src/program/Program.csproj">
+      <Platform Solution="*|ARM64" Project="ARM64" />
+      <Platform Solution="*|x64" Project="x64" />
+      <Deploy Solution="*|x64" />
+      <Deploy Solution="Release|ARM64" />
+    </Project>
+  </Folder>
+  <Folder Name="/Shergen Engine/">
+    <Project Path="src/Shergen.Json/Shergen.Json.csproj" Id="cfbf32aa-4fc2-47cc-9a0c-4f24129e4d0f" />
+    <Project Path="src/Shergen.XLSX/Shergen.XLSX.csproj" Id="330e8d8d-3508-4cd2-9454-c8cd88210c35" />
+    <Project Path="src/shergen/Shergen.csproj" Id="b1007e55-9e8c-4d8b-8c07-c38b71df5cc4">
+      <Platform Solution="*|ARM64" Project="ARM64" />
+      <Platform Solution="*|x64" Project="x64" />
+    </Project>
+  </Folder>
+
+</Solution>

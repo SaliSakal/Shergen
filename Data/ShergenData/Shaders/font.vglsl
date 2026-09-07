@@ -1,0 +1,22 @@
+#version 450 core
+layout (location = 0) in vec2 aPos;
+layout (location = 1) in vec2 aUV;
+layout (location = 2) in float aLayer;
+
+uniform mat4  projection;
+uniform vec2  position;
+uniform vec2  size;
+uniform float italicSlant;   // 0 = normal, ~0.25 = italic shear
+
+out vec2 UV;
+out float vLayer;
+
+void main()
+{
+    vec2 worldPos = position + aPos * size;
+    // Italic: shear x by (1 - y) * height * slant  (top leans right, bottom is anchor)
+    worldPos.x += (1.0 - aPos.y) * size.y * italicSlant;
+    gl_Position = projection * vec4(worldPos, 0.0, 1.0);
+    UV = aUV;
+    vLayer = aLayer;
+}

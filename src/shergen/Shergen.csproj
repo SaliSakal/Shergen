@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>annotations</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Platforms>x64;ARM64</Platforms>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\Data\ShergenData\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup Condition="$([MSBuild]::IsOsPlatform('Windows')) and '$(TargetFramework)' != 'net10.0-android'">
+    <Content Include="..\..\Data\ShergenDataWin\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup Condition="$([MSBuild]::IsOsPlatform('Linux')) and '$(TargetFramework)' != 'net10.0-android'">
+    <Content Include="..\..\Data\ShergenDataLin\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net10.0-android'">
+    <AndroidNativeLibrary Include="..\..\Data\ShergenDataAndr\**\*">
+      <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </AndroidNativeLibrary>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="RendererSilk\RendererGL - Kopie.DrawText.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="RendererSilk\RendererGL - Kopie.DrawText.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Silk.NET.Core" Version="2.23.0" />
+    <PackageReference Include="Silk.NET.Input" Version="2.23.0" />
+    <PackageReference Include="Silk.NET.OpenAL" Version="2.23.0" />
+    <PackageReference Include="Silk.NET.OpenAL.Soft.Native" Version="1.23.1" />
+    <PackageReference Include="Silk.NET.OpenGL" Version="2.23.0" />
+    <PackageReference Include="Silk.NET.OpenGL.Extensions.EXT" Version="2.23.0" />
+    <PackageReference Include="Silk.NET.OpenGLES" Version="2.23.0" />
+    <PackageReference Include="Silk.NET.Windowing" Version="2.23.0" />
+    <PackageReference Include="StbImageSharp" Version="2.30.15" />
+    <PackageReference Include="StbVorbisSharp" Version="1.22.4" />
+  </ItemGroup>
+</Project>
