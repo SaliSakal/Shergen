@@ -1,6 +1,6 @@
 # Shergen
 
-A 2D UI framework and Lua scripting layer written in C#, built on [Silk.NET](https://github.com/dotnet/Silk.NET) (OpenGL bindings) for rendering, with a native Lua C API binding for scripting. Targets Windows, Linux and Android (x64 / ARM64).
+A 2D UI framework and Lua scripting layer written in C#, built on [Silk.NET](https://github.com/dotnet/Silk.NET) (OpenGL bindings) for rendering, with a native Lua C API binding for scripting. Targets Windows and Linux(x64).
 
 Shergen is not (yet) a full game engine — right now it covers rendering, a UI toolkit, and Lua scripting. Game-specific systems (physics, entity/scene management, etc.) aren't part of it.
 
